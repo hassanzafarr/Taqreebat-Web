@@ -1,14 +1,24 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./Footer.module.css";
+interface FooterLinkProps {
+  href: string;
+  children: React.ReactNode; // Assuming you want to allow any valid React node as children
+}
 
-const FooterLink = ({ href, children }) => (
+interface SocialLinkProps {
+  href: string;
+  src: string;
+  alt: string;
+}
+
+const FooterLink: React.FC<FooterLinkProps> = ({ href, children }) => (
   <Link href={href} className={styles.paraFooter}>
     {children}
   </Link>
 );
 
-const SocialLink = ({ href, src, alt }) => (
+const SocialLink: React.FC<SocialLinkProps> = ({ href, src, alt }) => (
   <div>
     <a href={href}>
       <img src={src} alt={alt} />

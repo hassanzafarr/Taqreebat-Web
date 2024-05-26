@@ -5,12 +5,25 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import styles from "./Ven.module.css";
+import { DetailedHTMLProps, HTMLAttributes, MouseEventHandler } from "react";
 import Rating from "@mui/material/Rating";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeft from "@mui/icons-material/ChevronLeft";
 import { Card } from "@mui/material";
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+interface VenSlideProps {
+  images: string[]; // Assuming your images are an array of image URLs
+}
+interface SampleNextArrowProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  onClick?: MouseEventHandler<HTMLDivElement>;
+}
+
+// Interface for SamplePrevArrow props
+interface SamplePrevArrowProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  onClick?: MouseEventHandler<HTMLDivElement>;
+}
+function SampleNextArrow({ className, style, onClick }: SampleNextArrowProps) {
   return (
     <div
       className={className}
@@ -22,8 +35,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+function SamplePrevArrow({ className, style, onClick }: SamplePrevArrowProps) {
   return (
     <div
       className={className}
@@ -75,8 +87,7 @@ var settings = {
   ],
 };
 
-const VenSlide = ({ images }) => {
-
+const VenSlide = ({ images }: any) => {
   return (
     <div
       className="ven__cta"
@@ -98,16 +109,20 @@ const VenSlide = ({ images }) => {
         </div> */}
 
         <Slider {...settings}>
-          {images?.map((item:any, index:any) => (
-            <div key={index} >
-              <div className={styles.ven_img_cont} >
+          {images?.map((item: any, index: any) => (
+            <div key={index}>
+              <div className={styles.ven_img_cont}>
                 <img
                   src={item}
                   alt="prof"
                   width={0}
                   height={0}
                   sizes="100vw"
-                  style={{ width: "100%", height: "400px",borderRadius:'8px'}}
+                  style={{
+                    width: "100%",
+                    height: "400px",
+                    borderRadius: "8px",
+                  }}
                 />
               </div>
             </div>

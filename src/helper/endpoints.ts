@@ -1,4 +1,4 @@
-const baseEndpoint = "http://localhost:2000/";
+const baseEndpoint = "https://taqreebat-backend-production.up.railway.app/";
 
 const Endpoints = {
   //Authentication

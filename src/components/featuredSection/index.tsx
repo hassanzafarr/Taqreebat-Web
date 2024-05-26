@@ -7,18 +7,13 @@ import {
   CardContent,
   Chip,
   Grid,
-  IconButton,
-  Snackbar,
-  Tooltip,
   Typography,
-  makeStyles,
-  useMediaQuery,
 } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import Slider from "react-slick";
 import styles from "./Featured.module.css";
 import { useEffect, useState } from "react";
-
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import StarIcon from "@mui/icons-material/Star";
@@ -29,9 +24,16 @@ import axios from "axios";
 import Endpoints from "@/helper/endpoints";
 import { swalPopUp } from "@/helper/helper";
 import { useRouter } from "next/router";
+interface SampleNextArrowProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  onClick?: () => void; // Add your custom prop types if any
+}
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+interface SamplePrevArrowProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  onClick?: () => void; // Add your custom prop types if any
+}
+function SampleNextArrow({ className, style, onClick }: SampleNextArrowProps) {
   return (
     <div
       className={className}
@@ -43,8 +45,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+function SamplePrevArrow({ className, style, onClick }: SamplePrevArrowProps) {
   return (
     <div
       className={className}
@@ -58,11 +59,10 @@ function SamplePrevArrow(props) {
   );
 }
 
-const FeaturedSection = ({type}:any) => {
-
+const FeaturedSection = ({ type }: any) => {
   const router = useRouter();
 
-  const [bussiness, setBussiness] = useState([]);
+  const [bussiness, setBussiness] = useState<any[]>([]);
   const [chipData, setChipData] = useState(services[0]);
 
   console.log("bussiness", bussiness);
@@ -100,9 +100,8 @@ const FeaturedSection = ({type}:any) => {
     });
   };
 
-  const handleChip = (value: any) => {
-    console.log("value", value);
-    setChipData({ name: value });
+  const handleChip = (item: any) => {
+    setChipData(item);
   };
 
   console.log("chipData", chipData);
@@ -181,17 +180,20 @@ const FeaturedSection = ({type}:any) => {
         </div>
         <div>
           <Grid container spacing={2}>
-            <Grid item xs={12} >
+            <Grid item xs={12}>
               <Box
-                sx={{
-                  // display: "flex",
-                  // alignItems: "center",
-                  //   justifyContent: "space-between",
-                }}
+                sx={
+                  {
+                    // display: "flex",
+                    // alignItems: "center",
+                    //   justifyContent: "space-between",
+                  }
+                }
               >
                 {services.map((item, key) => (
                   <>
                     <Chip
+                      key={key} // Add a key to each Chip
                       label={item.name}
                       onClick={() => handleChip(item.name)}
                       sx={{
@@ -204,7 +206,7 @@ const FeaturedSection = ({type}:any) => {
                         cursor: "pointer",
                         borderRadius: 1,
                         mr: 2,
-                        mt:1,
+                        mt: 1,
                         fontFamily: `var(--font-poppins)`,
                       }}
                     />
@@ -233,7 +235,10 @@ const FeaturedSection = ({type}:any) => {
                     <CardMedia
                       component="img"
                       height="170"
-                      image={item?.BussinessDetail?.bnlogo}
+                      image={
+                        item?.BussinessDetail?.bnlogo ||
+                        "https://picsum.photos/200" // Provide default image
+                      }
                       alt="Paella dish"
                     />
                   </Box>
@@ -266,8 +271,10 @@ const FeaturedSection = ({type}:any) => {
                             fontFamily: `var(--font-poppins)`,
                           }}
                         >
-                          {item?.BussinessDetail?.ratingInfo?.totalRating.toString()?.slice(0, 3)}(
-                          {item?.BussinessDetail?.ratingInfo?.reviews?.length})
+                          {item?.BussinessDetail?.ratingInfo?.totalRating
+                            .toString()
+                            ?.slice(0, 3)}
+                          ({item?.BussinessDetail?.ratingInfo?.reviews?.length})
                         </Typography>
                       </Box>
                     </Box>

@@ -1,5 +1,9 @@
 import styles from "./Homecard.module.css";
-const Info = ({ title }) => {
+interface InfoProps {
+  title: string; // or React.ReactNode if you want to allow other types of children
+}
+
+const Info: React.FC<InfoProps> = ({ title }) => {
   return (
     <div className={styles.info__featuresContainer__feature}>
       <div />

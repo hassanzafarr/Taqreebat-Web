@@ -5,8 +5,10 @@ import { Inter } from "next/font/google";
 // import star from "../../assets/star.svg";
 import Image from "next/image";
 import styles from "./How.module.css";
-
-const HOWWORKS = ({ htag }) => (
+interface HOWWORKSProps {
+  htag: string; // or React.ReactNode if you want to allow other types of children
+}
+const HOWWORKS: React.FC<HOWWORKSProps> = ({ htag }) => (
   <div
     className="how__cta"
     style={{

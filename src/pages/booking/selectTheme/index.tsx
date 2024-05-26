@@ -16,7 +16,7 @@ const themes = [
 
 const BookPage = () => {
   const [selectedTheme, setSelectedTheme] = useState(null);
-  const handleThemeSelect = (theme) => {
+  const handleThemeSelect = (theme: any) => {
     setSelectedTheme(theme);
     console.log("Selected Theme ID:", theme.id);
   };

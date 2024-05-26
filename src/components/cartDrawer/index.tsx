@@ -8,6 +8,7 @@ import {
   SwipeableDrawer,
   Typography,
   ThemeProvider,
+  Theme,
   createTheme,
 } from "@mui/material";
 import List from "@mui/material/List";
@@ -59,7 +60,7 @@ export default function CartDrawer() {
     unit: "",
   };
 
-  const scrollbarStyles = (theme) => ({
+  const scrollbarStyles = (theme: Theme) => ({
     height: `calc(100% - ${theme.mixins.toolbar.minHeight}px)`,
     overflowY: "auto",
     scrollbarWidth: "thin", // For Firefox
@@ -111,7 +112,7 @@ export default function CartDrawer() {
     formState: { errors },
     setValue,
   } = useForm({
-    initialValues,
+    defaultValues: initialValues,
     mode: "onBlur",
     resolver: yupResolver(validationSchema),
   });

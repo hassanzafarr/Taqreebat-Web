@@ -9,6 +9,7 @@ import {
   Divider,
   Grid,
   IconButton,
+  Theme,
   Paper,
   Typography,
 } from "@mui/material";
@@ -44,11 +45,11 @@ const CustomDialogBox = ({
     watch,
     getValues,
   } = useForm({
-    initialValues,
+    defaultValues: initialValues,
     mode: "onBlur",
   });
 
-  const scrollbarStyles = (theme) => ({
+  const scrollbarStyles = (theme: Theme) => ({
     height: `calc(100% - ${theme.mixins.toolbar.minHeight}px)`,
     overflowY: "auto",
     scrollbarWidth: "thin", // For Firefox

@@ -5,12 +5,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import styles from "./Client.module.css";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import Rating from "@mui/material/Rating";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeft from "@mui/icons-material/ChevronLeft";
 import { Card } from "@mui/material";
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+interface SampleNextArrowProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  onClick?: () => void;
+}
+
+interface ClientSayProps {
+  htag: string;
+}
+
+function SampleNextArrow({ className, style, onClick }: SampleNextArrowProps) {
   return (
     <div
       className={className}
@@ -22,8 +31,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+function SamplePrevArrow({ className, style, onClick }: SampleNextArrowProps) {
   return (
     <div
       className={className}
@@ -75,7 +83,7 @@ var settings = {
   ],
 };
 
-const ClientSay = ({ htag }) => {
+const ClientSay = ({ htag }: ClientSayProps) => {
   const [value, setValue] = React.useState<number | null>(5);
 
   const arr = [

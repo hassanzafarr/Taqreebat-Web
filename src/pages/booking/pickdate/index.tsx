@@ -32,38 +32,43 @@ import CustomTimePicker from "@/components/customTimePicker";
 import { useRecoilState } from "recoil";
 import { bookingRequest } from "@/helper/middlewareStates";
 import { formatDate, formatTime } from "@/helper/helper";
-
+interface BookingPayload {
+  bookingDate: string;
+  bookingTime: string;
+}
 const BookPage = () => {
   const router = useRouter();
-  const [bookingPayload, setBookingPayload] = useRecoilState(bookingRequest);
+  const [bookingPayload, setBookingPayload] =
+    useRecoilState<BookingPayload>(bookingRequest); // Type the state
 
   const defaultValues = {
-    bookingDate: "",
+    bookingDate: dayjs(),
     bookingTime: "",
   };
   const goBack = () => {
     router.back();
   };
-  const schema = yup.object().shape({
+  const schema: any = yup.object().shape({
     bookingDate: yup.date().required("Date is required"),
     bookingTime: yup.string().required("Time is required"),
   });
 
   const {
     control,
-    setError,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     defaultValues,
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
-
   const onSubmit = (form: any) => {
+    const bookingDateAsDate = form.bookingDate?.toDate();
     setBookingPayload({
       ...bookingPayload,
-      bookingDate: formatDate(form.bookingDate),
+      // Use the converted date object or a default date if conversion fails:
+      bookingDate: formatDate(bookingDateAsDate || new Date()),
       bookingTime: formatTime(form.bookingTime),
     });
     router.push("/booking/eventType");

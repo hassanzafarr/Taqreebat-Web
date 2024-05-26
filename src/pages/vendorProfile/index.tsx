@@ -61,7 +61,7 @@ const VendorProfile = () => {
   const [selectedRating, setSelectedRating] = useState<number>(0);
 
   const theme = useTheme();
-  const breakPoint = theme.breakpoints.values.md <= theme.breakpoints.width;
+  const breakPoint: any = useMediaQuery(theme.breakpoints.down("md"));
 
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const { toCart, cartItem, handleSnackBarClose, calculateTotalPrice } =
@@ -823,7 +823,7 @@ const VendorProfile = () => {
         {businessDetail && businessDetail.ratingInfo.reviews.length > 0 ? (
           businessDetail.ratingInfo.reviews.map((review: any) => {
             function formatCreatedAt(createdAt: any) {
-              const options = {
+              const options: any = {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
@@ -987,7 +987,6 @@ const VendorProfile = () => {
                       fontWeight: "600",
                       color: "#672C70",
                       fontFamily: "Poppins, sans-serif",
-                      fontWeight: "600",
                     }}
                   >
                     Menu
@@ -1008,7 +1007,6 @@ const VendorProfile = () => {
                       fontWeight: "600",
                       color: "#672C70",
                       fontFamily: "Poppins, sans-serif",
-                      fontWeight: "600",
                     }}
                   >
                     Description
@@ -1038,7 +1036,6 @@ const VendorProfile = () => {
                         fontWeight: "600",
                         color: "#672C70",
                         fontFamily: "Poppins, sans-serif",
-                        fontWeight: "600",
                       }}
                     >
                       PKR {packageDetail?.price * guests}
@@ -1050,7 +1047,6 @@ const VendorProfile = () => {
                         fontWeight: "600",
                         color: "#672C70",
                         fontFamily: "Poppins, sans-serif",
-                        fontWeight: "600",
                       }}
                     >
                       {packageDetail?.price} Per head

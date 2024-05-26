@@ -50,10 +50,14 @@ const CustomTimePicker = ({
                 label={label}
                 value={dayjs(value) || null}
                 onChange={onChange}
-                slotProps={{ textField: { size: "small" } }}
-                renderInput={(params: any) => (
-                  <TextField onBlur={onBlur} size="small" {...params} />
-                )}
+                slots={{
+                  // Use 'slots' to specify the TextField
+                  textField: TextField,
+                }}
+                slotProps={{
+                  // Use 'slotProps' to pass props to TextField
+                  textField: { size: "small", onBlur },
+                }}
                 viewRenderers={{
                   hours: renderTimeViewClock,
                   minutes: renderTimeViewClock,

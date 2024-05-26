@@ -53,7 +53,7 @@ const VendorPackages = () => {
 
   console.log("bussiness1", bussiness);
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (newPage: any) => {
     setCurrentPage(newPage);
   };
 

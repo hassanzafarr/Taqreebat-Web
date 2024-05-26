@@ -6,8 +6,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import Info from "@/components/homecard/homecard";
 import CustomInputUnControlled from "@/components/customInputUncontrolled";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { Button, Stack } from "@mui/material";
+
 const BookPage = () => {
+  const router = useRouter();
   const [budget, setBudget] = useState();
   const goBack = () => {
     router.back();

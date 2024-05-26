@@ -11,6 +11,7 @@ import {
   IconButton,
   Paper,
   Typography,
+  Theme,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 //   import CustomSlider from "../customSlider";
@@ -36,7 +37,7 @@ const CustomPhotographerDialogBox = ({
     description: "",
   };
 
-  const [expanded, setExpanded] = useState<any>();
+  const [expanded, setExpanded] = useState<string>("");
   const [accordionStates, setAccordionStates] = useState<any>({
     deliverables: false,
     photography: false,
@@ -51,11 +52,11 @@ const CustomPhotographerDialogBox = ({
     watch,
     getValues,
   } = useForm({
-    initialValues,
+    defaultValues: initialValues,
     mode: "onBlur",
   });
 
-  const scrollbarStyles = (theme) => ({
+  const scrollbarStyles = (theme: Theme) => ({
     height: `calc(100% - ${theme.mixins.toolbar.minHeight}px)`,
     overflowY: "auto",
     scrollbarWidth: "thin", // For Firefox

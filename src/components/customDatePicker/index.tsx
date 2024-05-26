@@ -54,21 +54,24 @@ const CustomDatePicker = ({
           return (
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
-                readOnly={disabled}
+                // readOnly={readOnly}
                 openTo="day"
                 sx={textFieldDesign}
-                inputFormat={dateFormat}
+                format={dateFormat}
                 disablePast={disablePast}
                 disableFuture={disableFuture}
                 label={label}
-                minDate={min}
-                value={dayjs(value) || null}
-                views={views}
                 onChange={onChange}
-                slotProps={{ textField: { size: "small" } }}
-                renderInput={(params: any) => (
-                  <TextField onBlur={onBlur} size="small" {...params} />
-                )}
+                slots={{
+                  textField: TextField, // Use the 'slots' prop to specify the TextField component
+                }}
+                slotProps={{
+                  // Use the 'slotProps' prop to pass props to the TextField component
+                  textField: {
+                    size: "small",
+                    onBlur: onBlur, // Add your onBlur handler here
+                  },
+                }}
               />
             </LocalizationProvider>
           );
