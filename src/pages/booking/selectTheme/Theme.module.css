@@ -1,0 +1,88 @@
+/* Theme.module.css */
+
+.firstContainerMain {
+  display: flex;
+  flex-direction: row;
+  background-color: #f7f7f7;
+  width: 100%;
+  justify-content: center;
+}
+
+.section__padding1 {
+  padding: 2rem 6rem;
+  width: 100%;
+}
+
+.themeClass {
+  display: flex;
+  gap: 2rem;
+}
+.searchContent {
+  width: 100%;
+  margin: 2rem 4rem;
+}
+
+/* Add transition for smooth effect */
+
+.subContainer {
+  padding-top: 2%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.searchContent p {
+  font-size: 32px;
+  font-weight: 500;
+  color: #520e5c;
+  font-family: var(--font-poppins);
+}
+
+.searchFieldButton {
+  margin-top: 5%;
+}
+
+.searchImage {
+  padding: 1rem 5rem;
+}
+/* .themeClass div {
+  transition: transform 0.3s ease-in-out;
+}
+.selectedTheme {
+  transform: scale(1);
+} */
+
+.themeClass {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.themeItem {
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  padding: 1rem;
+}
+
+.themeItem:hover {
+  transform: scale(1.05);
+}
+
+.selectedTheme {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px 1px rgba(82, 14, 92, 0.5);
+  border-radius: 10px;
+}
+
+/* Add a new class for selected theme */
+
+@media screen and (max-width: 1180px) {
+  .themeClass {
+    flex-direction: column;
+  }
+  .subContainer {
+    flex-direction: column-reverse;
+  }
+}

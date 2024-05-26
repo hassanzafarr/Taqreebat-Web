@@ -1,0 +1,150 @@
+.main__container {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 10rem;
+  font-family: var(--font-poppins);
+}
+.client_main {
+  display: flex;
+  justify-content: center;
+}
+
+.rating_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+.client__cta_content {
+  margin-bottom: 2rem;
+}
+.client__cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.client__cta_content h3 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 35px;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.client__cta_content h4 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 35px;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+.clientLogo_Cont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  align-items: baseline;
+
+  text-align: center;
+}
+
+.client_container_a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1.5rem; */
+  padding: 1rem 10rem;
+}
+
+.client_container_a p {
+  color: rgb(255, 255, 255);
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.client_container_a h1 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 45px;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+.client_img_cont {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.client_img_cont img {
+  max-width: 15rem;
+}
+
+@media screen and (max-width: 1450px) {
+  .client_container_a {
+    padding: 1rem 4rem;
+  }
+  .client__cta_content h3 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .client_container_a {
+    padding: 0rem;
+    padding: 1rem 1rem;
+  }
+  .client_container_a p {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  .client_container_a h1 {
+    font-size: 20px;
+    margin: 0.1rem 0rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .client__cta {
+    flex-direction: column;
+  }
+  .main__container {
+    padding: 3rem 2rem;
+  }
+
+  .client_img_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clientLogo_Cont {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .client__cta {
+    flex-direction: column;
+  }
+
+  .client__cta-content h3 {
+    font-size: 30px;
+    line-height: 32px;
+  }
+}

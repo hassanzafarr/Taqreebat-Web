@@ -1,0 +1,59 @@
+.main__container {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-poppins);
+}
+.ven_main {
+  display: flex;
+  justify-content: center;
+}
+
+.rating_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.ven_img_cont {
+  /* display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.5rem; */
+  width: "100%";
+  height: "100%";
+  position: "relative";
+}
+
+/* .ven_img_cont img {
+  max-width: 15rem;
+} */
+
+@media screen and (max-width: 650px) {
+  .ven__cta {
+    flex-direction: column;
+  }
+  .main__container {
+    padding: 3rem 2rem;
+  }
+
+  .ven_img_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .venLogo_Cont {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .ven__cta {
+    flex-direction: column;
+  }
+}

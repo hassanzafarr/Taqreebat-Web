@@ -1,0 +1,68 @@
+.section__padding1 {
+  /* max-width: 1700px; */
+  padding: 4rem 8rem;
+}
+.vendorCard_text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.vendorCard_text h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 45px;
+  text-align: center;
+  font-family: var(--font-poppins);
+  color: #520e5c;
+}
+
+/* .button_23 {
+    background-color: #ffffff;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #222222;
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--font-poppins);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 15px;
+    margin: 0;
+    outline: none;
+    padding: 13px 23px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+      transform 0.1s;
+    user-select: none;
+    -webkit-user-select: none;
+    width: auto;
+  }
+  
+  .button_23:focus-visible {
+    box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+    transition: box-shadow 0.2s;
+  }
+  
+  .button_23:active {
+    background-color: #f7f7f7;
+    border-color: #000000;
+    transform: scale(0.96);
+  }
+  
+  .button_23:disabled {
+    border-color: #dddddd;
+    color: #dddddd;
+    cursor: not-allowed;
+    opacity: 1;
+  } */
+@media screen and (max-width: 700px) {
+  .section__padding1 {
+    /* max-width: 1700px; */
+    padding: 2rem 3rem;
+  }
+}

@@ -1,0 +1,66 @@
+.firstContainerMain {
+  display: flex;
+  flex-direction: row;
+  background-color: #f7f7f7;
+  width: 100%;
+  /* align-items: center; */
+  justify-content: center;
+}
+.section__padding1 {
+  padding: 2rem 6rem;
+  width: 100%;
+}
+/* .swal2-popup {
+  font-size: 1.6rem !important;
+  font-family: Georgia, serif;
+} */
+
+.swal2-title {
+  font-size: 20px;
+  font-family: "Inter";
+}
+.swal2-popup {
+  font-family: "Inter", sans-serif; /* Replace with your font */
+}
+.subContainer {
+  /* padding-left: 5%; */
+  /* padding-right: 8%; */
+  padding-top: 2%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  align-content: center;
+  justify-content: space-between;
+}
+.searchContent {
+  width: 100%;
+  margin: 2rem 4rem;
+}
+.searchContent p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #ff0000;
+  font-family: var(--font-poppins);
+}
+.mainhead {
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  color: #520e5c !important;
+}
+
+.searchFieldButton {
+  margin-top: 5%;
+}
+
+.searchImage {
+  padding: 1rem 5rem;
+}
+
+@media screen and (max-width: 800px) {
+  .subContainer {
+    flex-direction: column-reverse;
+  }
+  .searchImage {
+    display: none;
+  }
+}
