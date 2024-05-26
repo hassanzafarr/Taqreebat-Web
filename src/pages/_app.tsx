@@ -10,7 +10,6 @@ import { RecoilRoot } from "recoil";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Scrollbars } from "react-custom-scrollbars";
 
-import { Scrollbar } from "react-scrollbars-custom";
 import { askConfirmationPopUp } from "@/helper/helper";
 const poppins = Poppins({
   subsets: ["latin"],
@@ -46,7 +45,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const authenticationRoutes = ["/login", "/signup"];
 
   useEffect(() => {
-    console.log('use1')
+    console.log("use1");
     setIsClient(true);
   }, []);
   useEffect(() => {
@@ -93,14 +92,14 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <main className={`${poppins.variable} font-sans`}>
           <Scrollbars style={{ width: "100%", height: "100vh" }}>
-          {authenticationRoutes.includes(router.route) ? null : <Navbar />}
-          {/* <Loading /> */}
-          {protectedRoutes.includes(router.route) ? (
-            hasToken && <Component {...pageProps} suppressHydrationWarning />
-          ) : (
-            <Component {...pageProps} suppressHydrationWarning />
-          )}
-          {authenticationRoutes.includes(router.route) ? null : <Footer />}
+            {authenticationRoutes.includes(router.route) ? null : <Navbar />}
+            {/* <Loading /> */}
+            {protectedRoutes.includes(router.route) ? (
+              hasToken && <Component {...pageProps} suppressHydrationWarning />
+            ) : (
+              <Component {...pageProps} suppressHydrationWarning />
+            )}
+            {authenticationRoutes.includes(router.route) ? null : <Footer />}
           </Scrollbars>
         </main>
       </ThemeProvider>
